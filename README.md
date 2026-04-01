@@ -66,8 +66,8 @@ Hệ thống quản lý khách sạn hiện đại được xây dựng bằng R
 - Railway - Cloud hosting
 
 ## 📁 Cấu trúc dự án
-
 ### Backend Structure (Spring Boot)
+```
 hotelmanagement/
 └── src/main/java/com/nguyenhuuquang/hotelmanagement/
     ├── entity/                 # JPA Entities & Enums
@@ -79,7 +79,7 @@ hotelmanagement/
     ├── config/                # Configuration Classes
     ├── dto/                   # Data Transfer Objects
     └── exception/             # Custom Exceptions
-
+```
 
 ### Frontend Structure (React Native)
 
