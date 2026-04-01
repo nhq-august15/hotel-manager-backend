@@ -82,7 +82,7 @@ hotelmanagement/
 ```
 
 ### Frontend Structure (React Native)
-
+```
 myapp/
 ├── app/                       # Screens
 │   ├── (auth)/               # Authentication Screens
@@ -93,7 +93,7 @@ myapp/
 ├── hooks/                     # Custom React Hooks
 ├── services/                  # API Service Layer
 └── styles/                    # Stylesheets
-
+```
 ## 🚀 Cài đặt và chạy
 
 
