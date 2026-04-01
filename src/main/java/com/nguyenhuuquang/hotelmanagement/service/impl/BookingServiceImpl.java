@@ -671,6 +671,22 @@ public class BookingServiceImpl implements BookingService {
 
                 booking.setRoom(newRoom);
                 booking.setRoomAmount(newRoomAmount);
+                if (booking.getBookingPromotions() != null && !booking.getBookingPromotions().isEmpty()) {
+                        BigDecimal newSubtotal = newRoomAmount.add(booking.getServiceAmount());
+                        for (BookingPromotion bp : booking.getBookingPromotions()) {
+                                try {
+                                        BigDecimal newDiscount = promotionService.calculateDiscount(
+                                                        bp.getPromotionCode(),
+                                                        newSubtotal);
+                                        bp.setDiscountAmount(newDiscount);
+                                } catch (Exception e) {
+                                        logService.log(LogType.WARNING, "Không thể tính lại giảm giá khi đổi phòng",
+                                                        "Admin",
+                                                        e.getMessage());
+                                }
+                        }
+                }
+
                 booking.recalculateTotalAmount();
 
                 List<Booking> oldRoomActiveBookings = bookingRepo.findActiveBookingsByRoom(oldRoom.getId());
